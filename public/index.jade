@@ -1,0 +1,76 @@
+doctype html
+html(lang="fr")
+  head
+    title Vehicle Database
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://bootswatch.com/superhero/bootstrap.min.css')
+    // if lt IE 9
+      script(src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.min.js')
+      script(src='//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js')
+  body
+    .container
+
+        h1.page-header Vehicle Database
+        nav.navbar.navbar-inverse
+            ul.nav.navbar-nav.navbar-left
+                li
+                    a(href="/") Add a vehicle
+                
+        h4.text-info This application will help you manage your vehicle database
+        br
+        div.row
+            div.col-md-6
+                h2 Add your vehicle details
+                form(action="add", method="post")
+                    div.form-group
+                        label Make:
+                        input.form-control(type="text", name="make")
+                    div.form-group
+                        label Model:
+                        input.form-control(type="text", name="model")
+                    div.form-group
+                        label KM:
+                        input.form-control(type="text", name="km")
+                    div.form-group
+                        label Color:
+                        input.form-control(type="text", name="color")
+                    div.form-group
+                        label Location:
+                        input.form-control(type="text", name="location")
+                    div.form-group
+                        label Value:
+                        input.form-control(type="text", name="value")
+                    button.btn.btn-large.btn-primary(type="submit", value="Add a new car") Add car
+            
+
+            div.col-md-6.btn-default          
+                table.table.table-bordered
+                    thead
+                    th ID
+                    th Make
+                    th Model
+                    th KM's
+                    th Color
+                    th Location
+                    th Value
+                    - for(car in cars) {
+                    tr.text-info.h5                
+                        td= cars[car].id
+                        td= cars[car].make
+                        td= cars[car].model
+                        td= cars[car].km
+                        td= cars[car].color
+                        td= cars[car].location
+                        td= cars[car].value 
+                    - }               
+            
+
+script(src='//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', async=true)
+script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js', async=true)
+footer.footer
+    div.container
+        p.text-info.text-center Built by Dean Pillay
