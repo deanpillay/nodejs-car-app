@@ -38,7 +38,7 @@ db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='cars'", func
 // Render the templates with the data
 app.get('/', function(req, res) {
 
-    db.all('SELECT * FROM cars ORDER BY id', function(err, row) {
+    db.all('SELECT * FROM cars ORDER BY id ASC LIMIT 20', function(err, row) {
         if(err !== null) {
             res.status(500).send("An error has occurred -- " + err);
         }
